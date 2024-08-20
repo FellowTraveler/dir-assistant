@@ -1,9 +1,12 @@
 import os
 import sys
 import tempfile
-from colorama import Style, Fore
+
+from colorama import Fore, Style
 from prompt_toolkit import prompt
+
 from dir_assistant.assistant.cgrag_assistant import CGRAGAssistant
+
 
 class GitAssistant(CGRAGAssistant):
     def __init__(

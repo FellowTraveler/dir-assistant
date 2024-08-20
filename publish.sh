@@ -1,15 +1,15 @@
 #!/bin/sh
 
-# Ensure you first make .pypirc with appropriate tokens
-#[pypi]
-#  username = __token__
-#  password = 
-#
-#[testpypi]
-#  username = __token__
-#  password = 
-
 rm dist/*
-pip install build twine
-python -m build
-python -m twine upload dist/*
+
+# Ubuntu 22.04
+#pip install build twine
+#python -m build
+#python -m twine upload dist/*
+
+# Ubuntu 24.04
+pip install pipx
+pipx install build
+pipx run build
+pipx install twine
+pipx run twine upload dist/*

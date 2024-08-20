@@ -1,42 +1,20 @@
 import os
 import sys
+
 from colorama import Fore, Style
 from llama_cpp import Llama
 from prompt_toolkit import prompt
 from prompt_toolkit.history import InMemoryHistory
+
 from dir_assistant.assistant.file_watcher import start_file_watcher
 from dir_assistant.assistant.index import create_file_index
 from dir_assistant.assistant.lite_llm_assistant import LiteLLMAssistant
 from dir_assistant.assistant.llama_cpp_assistant import LlamaCppAssistant
 from dir_assistant.assistant.llama_cpp_embed import LlamaCppEmbed
 from dir_assistant.cli.config import get_file_path
+from dir_assistant.cli.startup_art import display_startup_art
 
 MODELS_PATH = os.path.expanduser("~/.local/share/dir-assistant/models")
-
-def display_startup_art(commit_to_git):
-    sys.stdout.write(
-        f"""{Style.BRIGHT}{Fore.GREEN}
-  _____ _____ _____                                              
- |  __ \_   _|  __ \                                             
- | |  | || | | |__) |                                            
- | |  | || | |  _  /                                             
- | |__| || |_| | \ \                                             
- |_____/_____|_|_ \_\__ _____  _____ _______       _   _ _______ 
-     /\    / ____/ ____|_   _|/ ____|__   __|/\   | \ | |__   __|
-    /  \  | (___| (___   | | | (___    | |  /  \  |  \| |  | |   
-   / /\ \  \___ \\\___ \  | |  \___ \   | | / /\ \ | . ` |  | |   
-  / ____ \ ____) |___) |_| |_ ____) |  | |/ ____ \| |\  |  | |   
- /_/    \_\_____/_____/|_____|_____/   |_/_/    \_\_| \_|  |_|   
-{Style.RESET_ALL}\n\n"""
-    )
-    sys.stdout.write(
-        f"{Style.BRIGHT}{Fore.BLUE}Type 'exit' to quit the conversation.\n"
-    )
-    if commit_to_git:
-        sys.stdout.write(
-            f"{Style.BRIGHT}{Fore.BLUE}Type 'undo' to roll back the last commit.\n"
-        )
-    sys.stdout.write("\n")
 
 def start(args, config_dict):
     # Load settings
