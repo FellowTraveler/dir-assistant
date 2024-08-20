@@ -18,6 +18,7 @@ and runs API LLMS using the also fantastic [LiteLLM](https://github.com/BerriAI/
 
 ## New Features
 
+* Turn on `COMMIT_TO_GIT` to automatically apply LLM changes and commit them to git
 * pipx support for Ubuntu 24.04
 * Automatically disable CGRAG for filesets smaller than 4x the LLM context
 
@@ -373,6 +374,7 @@ please see [CONTRIBUTORS.md](CONTRIBUTORS.md).
 - ~~Single-step pip install~~
 - ~~Model download~~
 - ~~Commit to git~~
+- Multi-step solutions
 - Web search
 - API Embedding models
 - Simple mode for better compatibility with external script automations
