@@ -288,7 +288,7 @@ To enable the `COMMIT_TO_GIT` feature, update the configuration:
 dir-assistant config open
 ```
 
-Change or add the following setting:
+Change the following setting:
 
 ```toml
 [DIR_ASSISTANT]
@@ -296,8 +296,10 @@ Change or add the following setting:
 COMMIT_TO_GIT = true
 ```
 
-Once enabled, the assistant will handle the Git commit process as part of its workflow. To undo a commit,
-type `undo` in the prompt.
+Once enabled, the assistant will ask for confirmation on any change you request to modify files. The assistant will
+only change one file at a time, so for multi-file changes, you must make multiple prompts. If your prompt does not 
+involve a file modification, the assistant will not make any updates and it will work as though `COMMIT_TO_GIT` is off. 
+To undo a commit, type `undo` in the prompt.
 
 ## Running
 
